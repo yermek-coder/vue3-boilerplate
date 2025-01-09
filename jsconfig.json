@@ -1,0 +1,14 @@
+{
+    "include": ["./src/**/*", "./plugins/**/*"],
+    "compilerOptions": {
+        "lib": ["ES2020", "DOM"],
+        "baseUrl": ".",
+        "module": "ES2020",
+        "moduleResolution": "node",
+        "target": "ES6",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@plugins/*": ["./plugins/*"]
+        }
+    }
+}

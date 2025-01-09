@@ -1,0 +1,29 @@
+.flashes {
+    z-index: 9999;
+    margin-top: 1rem;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flashes .alert {
+    gap: 1.5rem;
+    display: flex;
+    max-width: 50%;
+    min-width: 300px;
+    align-items: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.flashes .alert > div {
+    flex: 1 1 auto;
+}
+
+.dropdown-menu-right {
+    right: 0px;
+}

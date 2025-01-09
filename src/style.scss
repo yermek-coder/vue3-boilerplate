@@ -1,0 +1,57 @@
+@import "./theme/*.scss";
+@import "../plugins/*/theme/*.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+
+$gray-950: #08142a;
+$gray-900: #13213b;
+// $gray-850: #1a273e;
+$gray-800: #263144;
+$gray-700: #333d50;
+$gray-600: #3e4e6a;
+// $gray-620: #4d5f7f;
+// $gray-550: #969fb1;
+$gray-500: #bdc0df;
+
+$primary: #3172d5;
+$secondary: #6c7393;
+$success: #5faf42;
+$danger: #cd5b5b;
+$warning: #eaaf13;
+
+$min-contrast-ratio: 2.725;
+
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-size-base: 0.825rem;
+
+$list-group-item-padding-y: 0.3rem;
+$dropdown-item-padding-y: $list-group-item-padding-y;
+
+$form-label-font-weight: 500;
+$link-decoration: none;
+$enable-caret: false;
+$enable-negative-margins: true;
+$badge-font-weight: normal;
+
+$form-label-font-size: 0.7rem;
+$form-label-margin-bottom: 0.15rem;
+$form-label-font-weight: 600;
+
+$marked: #ffec10;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "./lib/v-bootstrap.css";
+@import "./style/*.scss";
+@import "../plugins/*/style/*.scss";
+
+:root {
+    --bs-gray-950: #{$gray-950};
+    --bs-font-size-sm: #{$font-size-sm};
+    --bs-nav-item-active-bg: var(--bs-gray);
+}
+
+body,
+html {
+    height: 100vh;
+}
