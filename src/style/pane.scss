@@ -1,0 +1,36 @@
+.pane {
+    inset: 0;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+}
+
+.pane-h {
+    flex-direction: row;
+}
+
+.pane-item {
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.pane-fill {
+    flex: 1 1 auto;
+    position: relative;
+}
+
+.pane-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    position: relative;
+}
+
+@media print {
+    .pane {
+        display: block;
+        position: static;
+    }
+    .pane-body {
+        overflow-y: visible;
+    }
+}

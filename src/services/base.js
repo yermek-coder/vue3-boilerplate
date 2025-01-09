@@ -6,9 +6,8 @@ import { merge } from "@/util";
 const STORAGE = window.localStorage;
 
 // Properties
-export const user = reactive({ id: "", email: "", groups: [] });
-export const connection = reactive({ url: "", token: "" });
-export const config = reactive({ roles: [], user: {} });
+export const user = reactive({ id: "", email: "", roles: [] });
+export const connection = reactive({ token: "" });
 
 /**
  *
@@ -18,14 +17,13 @@ export async function init() {
     load();
 }
 
-/**
- * @param {String} email
- * @param {String} password
- * @param {String} instance
- */
-export async function login(email, password, instance = null) {
+export async function login(role) {
     // Save state
     connection.token = "test-token";
+
+    user.id = "user-123";
+    user.email = "test@email.com";
+    user.roles = [role]
 
     // Persist state
     save();
@@ -41,7 +39,6 @@ export async function logout() {
     // Clean up state
     merge(user, {});
 
-    connection.url = "";
     connection.token = "";
 
     // Persist state
@@ -56,7 +53,7 @@ export async function logout() {
  * @returns
  */
 export function userHasRole(role) {
-    return config?.roles?.includes(role);
+    return user?.roles?.includes(role);
 }
 
 // Merge updated user data
@@ -69,8 +66,6 @@ export function mergeUser(model) {
 function load() {
     // Load from storage
     merge(user, JSON.parse(STORAGE.getItem("user") || "{}"));
-    merge(config, JSON.parse(STORAGE.getItem("config") || "{}"));
-    connection.url = STORAGE.getItem("url") || "";
     connection.token = STORAGE.getItem("token") || "";
 }
 
@@ -78,8 +73,6 @@ function load() {
 function save() {
     // Save state to storage
     persist("user", user);
-    persist("config", config);
-    persist("url", connection.url);
     persist("token", connection.token);
 }
 

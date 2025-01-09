@@ -4,7 +4,7 @@ import { connection } from "./base";
 // API Service
 class API {
     url(path = "") {
-        return `${connection.url || ""}${path.indexOf("/") !== 0 ? "/api/" : ""}${path}`;
+        return `/api/${path}`;
     }
 
     get(path, config = null) {

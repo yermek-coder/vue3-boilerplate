@@ -1,0 +1,15 @@
+.feature-responsive-actions .feature .icon + span {
+    display: none;
+
+    @media (min-width: 992px) {
+        display: block;
+    }
+}
+
+.feature-filters {
+    gap: 0.5rem;
+}
+
+.feature-actions:empty {
+    display: none !important;
+}

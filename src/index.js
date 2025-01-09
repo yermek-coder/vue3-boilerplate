@@ -7,7 +7,7 @@ import dropin from "./lib/dropin";
 import confirm from "./lib/confirm";
 import { routes, routeList } from "./routes";
 import { getHttpParam } from "./util";
-import { user, logout, userHasRole } from "./services/base";
+import { user, logout, userHasRole, init } from "./services/base";
 import components from "./components";
 import directives from "./directives";
 import services from "./services";
@@ -50,7 +50,7 @@ async function start() {
 
     // Watch for auth events
     document.addEventListener("api/unauthorized", () => user.id && logout());
-    document.addEventListener("auth", () => router.push(user.email ? getHttpParam("r") || { name: "home" } : { name: "login" }));
+    document.addEventListener("auth", () => router.push(user.email ? getHttpParam("r") || { name: "public" } : { name: "login" }));
 
     // Configure app
     app.use(router);
@@ -79,6 +79,15 @@ async function start() {
 
     // Provide global properties
     Object.keys(globals).forEach(name => app.provide(name, globals[name]));
+
+    // Init base
+    try {
+        await init();
+    } catch (err) {
+        // FIXME Handle that?
+        console.log("Could not init base", err);
+    }
+
 
     // Mount
     app.mount("#app");

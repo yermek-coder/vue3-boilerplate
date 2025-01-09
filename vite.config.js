@@ -11,7 +11,14 @@ const ignorePaths = plugins.map(plugin => plugin.enabled === false && `../plugin
 export default defineConfig({
     plugins: [sassGlobImport({ ignorePaths }), vue()],
     server: {
-        port: 3000
+        port: 3000,
+        proxy: {
+            '/api': {
+                target: 'https://jsonplaceholder.org',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, ''),
+            },
+        }
     },
     resolve: {
         alias: {
@@ -20,8 +27,5 @@ export default defineConfig({
             // Fix import errors from vite
             "underscore/modules": "underscore"
         }
-    },
-    proxy: {
-        "/api": "https://jsonplaceholder.org"
     }
 });

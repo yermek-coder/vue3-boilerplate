@@ -1,0 +1,110 @@
+.anim-off {
+    transition: none !important;
+}
+
+/**
+ * Modal animations
+ */
+.anim-modal-content-enter-active,
+.anim-modal-content-leave-active,
+.anim-modal-backdrop-enter-active,
+.anim-modal-backdrop-leave-active {
+    transition: opacity 0.25s linear;
+}
+
+.anim-modal-content-enter-from,
+.anim-modal-content-leave-to,
+.anim-modal-backdrop-enter-from,
+.anim-modal-backdrop-leave-to {
+    opacity: 0;
+}
+
+/**
+ * Modal animations: Variantions
+ */
+.fade-slide-up {
+    &.anim-modal-content-enter-active,
+    &.anim-modal-content-leave-active {
+        transform-origin: center 95vh;
+        transition: opacity 0.25s linear, transform 0.25s ease-in-out;
+    }
+
+    &.anim-modal-content-enter-from,
+    &.anim-modal-content-leave-to {
+        opacity: 0;
+        transform: scaleY(0.5);
+    }
+}
+
+/*
+ * Dropins
+ */
+.anim-dropin-enter-active,
+.anim-dropin-leave-active {
+    transition: opacity 0.075s linear, transform 0.075s ease-in-out;
+}
+
+.anim-dropin-enter-from,
+.anim-dropin-leave-to {
+    opacity: 0;
+    transform: translateY(-1rem);
+}
+
+.anim-dropup-enter-active,
+.anim-dropup-leave-active {
+    transition: opacity 0.075s linear, transform 0.075s ease-in-out;
+}
+
+.anim-dropup-enter-from,
+.anim-dropup-leave-to {
+    opacity: 0;
+    transform: translateY(1rem);
+}
+
+.anim-slide-right-enter-active,
+.anim-slide-right-leave-active {
+    transition: opacity 0.25s linear, transform 0.25s ease-in-out;
+}
+
+.anim-slide-right-enter-from,
+.anim-slide-right-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/*
+ * Dropdowns
+ */
+@keyframes dropdown-in {
+    from {
+        display: block;
+        opacity: 0;
+        transform: translateY(calc(var(--anim-dir, 1) * -1rem));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes dropdown-out {
+    from {
+        display: block;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(calc(var(--anim-dir, 1) * -1rem));
+    }
+}
+
+.dropup .dropdown-menu-managed.dropdown-menu {
+    --anim-dir: -1;
+}
+
+.dropdown-menu-managed.dropdown-menu:not(.transformed).show {
+    animation: dropdown-in 0.075s ease-in-out;
+}
+
+.dropdown-menu-managed.dropdown-menu:not(.transformed).hide {
+    animation: dropdown-out 0.075s ease-in-out;
+}

@@ -1,5 +1,3 @@
-import { config, user } from "@/services/base";
-
 const SIZES = {
     default: { day: "2-digit", month: "2-digit", year: "2-digit" },
     date_month_short: { day: "2-digit", month: "short", year: "numeric" },
@@ -15,5 +13,5 @@ export default function (date, size = "default") {
         size = new Date(date).getFullYear() === new Date().getFullYear() ? "sm" : "default";
     }
 
-    return date ? new Date(date).toLocaleString("de-DE" || config.locale || navigator.language, { ...(SIZES[size] || SIZES.default) }) : "";
+    return date ? new Date(date).toLocaleString("en-EN" || navigator.language, { ...(SIZES[size] || SIZES.default) }) : "";
 }

@@ -1,0 +1,86 @@
+.modal {
+    --bs-modal-border-width: 0;
+    --modal-body-full-height: calc(100vh - 4rem - (2 * var(--bs-modal-margin))); /** 100vh - Header height - 2 x Modal Margin */
+}
+
+.modal-content {
+    @extend .shadow-lg;
+}
+
+.modal-header {
+    gap: 0.5rem;
+    justify-content: space-between;
+    background-color: var(--bs-secondary-bg);
+    padding: 0.58rem 1rem;
+    border: none;
+    color: var(--bs-modal-header-color, --bs-modal-color);
+    .btn-light:not(:hover) {
+        border-color: transparent;
+        background-color: transparent;
+    }
+}
+
+.modal-footer {
+    border: none;
+}
+
+.modal-title {
+    font-weight: 500;
+    font-size: 1.25rem;
+    flex: 1 1 auto;
+}
+
+.modal-header-sticky {
+    top: 0;
+    z-index: 11;
+    position: sticky;
+}
+
+.modal-header-light {
+    background-color: transparent;
+}
+
+.modal-backdrop {
+    --bs-backdrop-bg: rgba(0, 0, 0, 0.5);
+}
+
+.modal-fluid {
+    --bs-modal-width: 90%;
+}
+
+.modal-header-light {
+    background-color: transparent;
+    padding-bottom: 0;
+}
+
+.modal-header-light + .modal-body {
+    padding-top: 0.5rem;
+}
+
+.modal-full-height {
+    .modal-content {
+        height: calc(100vh - 2 * var(--bs-modal-margin));
+    }
+
+    .modal-body {
+        overflow-y: auto;
+    }
+}
+
+.modal-container {
+    inset: 0;
+    z-index: 100;
+    position: absolute;
+
+    &:empty {
+        display: none;
+    }
+
+    .modal, .modal-backdrop {
+        position: absolute;
+    }
+
+    .modal-backdrop {
+        width: 100%;
+    }
+}
