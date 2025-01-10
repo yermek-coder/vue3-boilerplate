@@ -23,4 +23,8 @@ A robust boilerplate for Vue 3 showcasing an advanced architecture. This reposit
 
 ### ⚡ Additional Utilities
 - Useful **directives** and **filters** to simplify common tasks.
+  - popup flashes
+  - dropdowns
+  - drag and drop helper
+  - date, filesize, time filters
 - Modular structure to encourage clean and organized code.
