@@ -7,6 +7,6 @@
 </template>
 
 <script setup>
-import { dropins, closeAllDropins, closeDropin, dismissDropin, recalcDropinPosition } from "./dropin";
+import { dropins, closeAllDropins, closeDropin, dismissDropin, recalcDropinPosition } from "@/services/dropin";
 document.addEventListener("mousedown", closeAllDropins);
 </script>

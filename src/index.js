@@ -2,9 +2,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import { createRouter, createWebHistory } from "vue-router";
-import bootstrap from "./lib/v-bootstrap.mjs";
-import dropin from "./lib/dropin";
-import confirm from "./lib/confirm";
 import { routes, routeList } from "./routes";
 import { getHttpParam } from "./util";
 import { user, logout, userHasRole, init } from "./services/base";
@@ -54,9 +51,6 @@ async function start() {
 
     // Configure app
     app.use(router);
-    app.use(bootstrap);
-    app.use(dropin);
-    app.use(confirm);
     app.use(createPinia());
 
     // Configure error handler
